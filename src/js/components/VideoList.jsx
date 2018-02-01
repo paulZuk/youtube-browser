@@ -16,6 +16,8 @@ export default class VideoList extends Component {
                                 imageUrl={video.snippet.thumbnails.medium.url}
                                 title={video.snippet.title}
                                 description={video.snippet.description}
+                                videoId={video.id.videoId}
+                                onClickItem={this.props.onClickItem}
                             />
                         )
                     })

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 export default class VideoPlayer extends Component {
     render() {
+        let link = `https://www.youtube.com/embed/${this.props.link !== "" ? this.props.link + '?autoplay=1' : 'dQw4w9WgXcQ?autoplay=0' }`
         return(
             <div className="col-sm-8">
                 <iframe 
-                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1" 
+                    src={link}
                     style={{
                         width: '100%',
                         height: '80vh'

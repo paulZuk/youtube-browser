@@ -12,7 +12,8 @@ export default class App extends Component {
 
         this.state = {
             data: [],
-            search: ""
+            search: "",
+            link:""
         }
     }
 
@@ -38,17 +39,26 @@ export default class App extends Component {
         });
     }
 
+    loadVideo(link) {
+        this.setState({
+            link
+        });
+    }
+
     render() {
         const { data } = this.state;
-
+        console.log(this.state.link);
+        
         return (
             <div className="container">
                 <div className="row justify-content-center">
                     <SearchBar updateSearchTerm={search => this.updateSearchTerm(search)} />
                 </div>
                 <div className="row">
-                    <VideoPlayer />
-                    <VideoList data={data} />
+                    <VideoPlayer link={this.state.link} />
+                    <VideoList 
+                        onClickItem={link => this.loadVideo(link)}
+                        data={data} />
                 </div>
             </div>
         )
